@@ -5,6 +5,7 @@ import "./globals.css";
 import Image from "next/image";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           </div>
         </div>
         <div className="flex md:mb-20 mb-10 tracking-wide px-5 justify-center">
+          <ScrollToTopButton />
           {children}
         </div>
         <div id="contact">

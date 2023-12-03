@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-scroll";
-
+import Link from "next/link";
 const Hero = () => {
   return (
     <div className="min-h-screen md:p-5 p-3 flex justify-center flex-col">
@@ -11,14 +10,14 @@ const Hero = () => {
         Explore an exquisite collection featuring stunning artistic creations,
         capturing the essence of creativity and passion in every piece.
       </div>
-      <Button
-        variant="secondary"
-        className="rounded-full w-fit px-10 font-bold mt-5"
-      >
-        <Link to="contact" smooth={true} duration={500} offset={-130}>
+      <Link href="#contact">
+        <Button
+          variant="secondary"
+          className="rounded-full w-fit px-10 font-bold mt-5"
+        >
           Contact
-        </Link>
-      </Button>
+        </Button>
+      </Link>
     </div>
   );
 };
