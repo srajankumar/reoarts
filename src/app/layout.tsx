@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://reoarts.vercel.app/",
+    url: "https://www.reoarts.design/",
     title: "Reo Arts",
     description: "srajan's pencil creations.",
     siteName: "Reo Arts",
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
   other: {
     "theme-color": "#000000",
     "color-scheme": "dark only",
-    "twitter:image": "https://reoarts.vercel.app/og.png",
+    "twitter:image": "https://www.reoarts.design/og.png",
     "twitter:card": "summary_large_image",
-    "og:url": "reoarts.vercel.app",
-    "og:image": "https://reoarts.vercel.app/og.png",
+    "og:url": "reoarts.design",
+    "og:image": "https://www.reoarts.design/og.png",
     "og:type": "website",
   },
 };
