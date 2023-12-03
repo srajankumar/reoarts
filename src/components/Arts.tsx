@@ -34,12 +34,13 @@ const toBase64 = (str: string) =>
     ? Buffer.from(str).toString("base64")
     : window.btoa(str);
 
-interface ProjectsProps {
-  projectIdsToShow: string[];
+interface ImageData {
+  src: string;
+  alt: string;
 }
 
 export function Arts() {
-  const images = [
+  const images: ImageData[] = [
     { src: "/arts/one.jpeg", alt: "Image 1" },
     { src: "/arts/two.jpg", alt: "Image 2" },
     { src: "/arts/three.jpg", alt: "Image 3" },
@@ -65,16 +66,20 @@ export function Arts() {
     { src: "/arts/twenty_three.jpg", alt: "Image 23" },
     { src: "/arts/twenty_four.jpg", alt: "Image 24" },
   ];
+  const [selectedImage, setSelectedImage] = useState<number | null>(
+    null as number | null
+  );
 
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const openImageDialog = (index: any) => {
+  const openImageDialog = (index: number) => {
     setSelectedImage(index);
   };
 
   const closeImageDialog = () => {
     setSelectedImage(null);
   };
+
+  const selectedImageSrc = (images[selectedImage ?? 0] || {}).src;
+  const selectedImageAlt = (images[selectedImage ?? 0] || {}).alt;
 
   return (
     <div className="grid lg:grid-cols-3 grid-cols-2">
@@ -107,8 +112,8 @@ export function Arts() {
                   placeholder={`data:image/svg+xml;base64,${toBase64(
                     shimmer(700, 475)
                   )}`}
-                  src={images[selectedImage]?.src}
-                  alt={images[selectedImage]?.alt}
+                  src={selectedImageSrc}
+                  alt={selectedImageAlt}
                   layout="fill"
                   className="rounded-md object-contain"
                 />
