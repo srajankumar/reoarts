@@ -49,18 +49,18 @@ const Contact = () => {
 
   return (
     <div className="relative justify-center xl:rounded-t-[20rem] lg:rounded-t-[15rem] md:rounded-t-[12rem] sm:rounded-t-[10rem] rounded-t-[7rem] flex bg-[#0d0d0d] min-h-screen ">
-      <div className="absolute bottom-0 right-0 w-[24.9%] h-[34.9%] bg-white"></div>
-      <div className="absolute bottom-0 right-0 w-[25%] h-[35%] bg-[#0d0d0d] rounded-br-full"></div>
-      <div className="flex tracking-wide px-5">
+      <div className="absolute bottom-0 right-0 w-[24.9%] h-[34.9%] bg-white" />
+      <div className="absolute bottom-0 right-0 w-[25%] h-[35%] bg-[#0d0d0d] rounded-br-full z-10" />
+      <div className="flex tracking-wide px-8 md:px-10">
         <main className="max-w-6xl py-10">
-          <div className="min-h-screen md:p-5 p-3 flex justify-center flex-col">
+          <div className="min-h-screen flex justify-center flex-col">
             <h1 className="text-secondary text-4xl font-extrabold">CONTACT</h1>
             <div className="py-3 md:w-3/4 text-white">
               Gift a touch of art! For personalized portraits or inquiries about
               my work, reach out to me. Let's chat about bringing beauty into
               your space!
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="z-50">
               <div className="flex pb-3 md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
                 <Input
                   type="text"
@@ -84,6 +84,7 @@ const Contact = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 id="message"
+                className="z-10"
                 placeholder="Type your message here"
               />
               <Button

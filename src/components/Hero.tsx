@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-scroll";
 
 const Hero = () => {
   return (
@@ -7,15 +8,16 @@ const Hero = () => {
         REO ARTS
       </h1>
       <div className="pt-3 md:w-3/4 text-white">
-        Discover an exquisite collection featuring the stunning artistic
-        creations by srajan, capturing the essence of creativity and passion in
-        every piece.
+        Explore an exquisite collection featuring stunning artistic creations,
+        capturing the essence of creativity and passion in every piece.
       </div>
       <Button
         variant="secondary"
         className="rounded-full w-fit px-10 font-bold mt-5"
       >
-        Contact
+        <Link to="contact" smooth={true} duration={500} offset={-130}>
+          Contact
+        </Link>
       </Button>
     </div>
   );

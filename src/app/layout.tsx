@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Image from "next/image";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -29,21 +30,24 @@ export default function RootLayout({
               width={500}
               height={500}
             />
-            <div className="absolute bottom-0 right-0 w-[24.9%] h-[34.9%] bg-white"></div>
-            <div className="absolute bottom-0 right-0 w-[25%] h-[35%] bg-[#0d0d0d] rounded-br-full"></div>
+            <div className="absolute bottom-0 right-0 w-[24.9%] h-[34.9%] bg-white" />
+            <div className="absolute bottom-0 right-0 w-[25%] h-[35%] bg-[#0d0d0d] rounded-br-full" />
           </div>
           <div className="relative flex min-h-screen">
-            <div className="absolute left-0 top-0 w-[25%] h-[35%] bg-[#0d0d0d]"></div>
-            <div className="absolute top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full"></div>
+            <div className="absolute left-0 top-0 w-[25%] h-[35%] bg-[#0d0d0d]" />
+            <div className="absolute top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full" />
           </div>
         </div>
         <div className="flex md:mb-20 mb-10 tracking-wide px-5 justify-center">
           {children}
         </div>
-        <Contact />
-        <div className="relative flex min-h-screen">
-          <div className="absolute left-0 top-0 w-[25%] h-[35%] bg-[#0d0d0d]"></div>
-          <div className="absolute top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full"></div>
+        <div id="contact">
+          <Contact />
+        </div>
+        <div className="relative">
+          <div className="absolute -z-10 left-0 top-0 w-[25%] h-[35%] bg-[#0d0d0d]" />
+          <div className="absolute -z-10 top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full" />
+          <Footer />
         </div>
       </body>
     </html>
