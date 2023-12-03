@@ -57,7 +57,7 @@ const Contact = () => {
             <h1 className="text-secondary text-4xl font-extrabold">CONTACT</h1>
             <div className="py-3 md:w-3/4 text-white">
               Gift a touch of art! For personalized portraits or inquiries about
-              my work, reach out to me. Let's chat about bringing beauty into
+              my work, reach out to me. Let&apos;s chat about bringing beauty into
               your space!
             </div>
             <form onSubmit={handleSubmit}>
