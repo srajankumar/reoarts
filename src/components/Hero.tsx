@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen flex justify-center flex-col">
+    <div className="min-h-screen md:p-5 p-3 flex justify-center flex-col">
       <h1 className="text-secondary text-6xl md:text-8xl font-extrabold">
         REO ARTS
       </h1>
@@ -11,7 +11,10 @@ const Hero = () => {
         creations by srajan, capturing the essence of creativity and passion in
         every piece.
       </div>
-      <Button variant="secondary" className="rounded-full w-fit px-10 mt-5">
+      <Button
+        variant="secondary"
+        className="rounded-full w-fit px-10 font-bold mt-5"
+      >
         Contact
       </Button>
     </div>

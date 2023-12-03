@@ -19,12 +19,12 @@ const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <linearGradient id="g">
-      <stop stop-color="#1e1e1e" offset="20%" />
-      <stop stop-color="#222" offset="50%" />
-      <stop stop-color="#1e1e1e" offset="70%" />
+      <stop stop-color="#fff" offset="20%" />
+      <stop stop-color="#eee" offset="50%" />
+      <stop stop-color="#fff" offset="70%" />
     </linearGradient>
   </defs>
-  <rect width="${w}" height="${h}" fill="#1e1e1e" />
+  <rect width="${w}" height="${h}" fill="#fff" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
@@ -74,10 +74,6 @@ export function Arts() {
     setSelectedImage(index);
   };
 
-  const closeImageDialog = () => {
-    setSelectedImage(null);
-  };
-
   const selectedImageSrc = (images[selectedImage ?? 0] || {}).src;
   const selectedImageAlt = (images[selectedImage ?? 0] || {}).alt;
 
@@ -86,7 +82,7 @@ export function Arts() {
       {images.map((image, index) => (
         <AlertDialog key={index}>
           <AlertDialogTrigger asChild>
-            <AspectRatio ratio={4 / 5} className="m-5">
+            <AspectRatio ratio={4 / 5} className="md:m-5 m-3">
               <div
                 role="button"
                 tabIndex={0}
@@ -100,7 +96,7 @@ export function Arts() {
                   src={image.src}
                   alt={image.alt}
                   layout="fill"
-                  className="rounded-xl h-40 w-full shadow-xl md:hover:scale-[102%] transition duration-300 object-cover"
+                  className="rounded-xl h-40 w-full hover:shadow-xl md:hover:scale-[102%] transition duration-300 object-cover"
                 />
               </div>
             </AspectRatio>
@@ -120,9 +116,7 @@ export function Arts() {
               </AspectRatio>
             </AlertDialogDescription>
             <AlertDialogFooter>
-              <AlertDialogCancel onClick={closeImageDialog}>
-                Close
-              </AlertDialogCancel>
+              <AlertDialogCancel>Close</AlertDialogCancel>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

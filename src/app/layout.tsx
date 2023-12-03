@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 
 import Image from "next/image";
+import Contact from "@/components/Contact";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -36,7 +37,14 @@ export default function RootLayout({
             <div className="absolute top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full"></div>
           </div>
         </div>
-        <div className="flex tracking-wide px-5 justify-center">{children}</div>
+        <div className="flex md:mb-20 mb-10 tracking-wide px-5 justify-center">
+          {children}
+        </div>
+        <Contact />
+        <div className="relative flex min-h-screen">
+          <div className="absolute left-0 top-0 w-[25%] h-[35%] bg-[#0d0d0d]"></div>
+          <div className="absolute top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full"></div>
+        </div>
       </body>
     </html>
   );
