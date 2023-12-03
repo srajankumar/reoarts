@@ -25,6 +25,7 @@ export default function RootLayout({
         <div className="absolute -z-10">
           <div className="relative flex bg-[#0d0d0d] min-h-screen ">
             <Image
+              priority
               src="/background.svg"
               className="w-full "
               alt=""
