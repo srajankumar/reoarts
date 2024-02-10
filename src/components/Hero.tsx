@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <motion.div
       initial="hidden"
-      className="min-h-screen md:p-5 p-3 flex justify-center flex-col"
+      className="min-h-[100dvh] md:p-5 p-3 flex justify-center flex-col"
       ref={ref}
       animate={isInView ? "show" : "hidden"}
       viewport={{ once: true }}

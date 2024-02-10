@@ -64,7 +64,7 @@ const Contact = () => {
   return (
     <motion.div
       initial="hidden"
-      className="relative justify-center xl:rounded-t-[20rem] lg:rounded-t-[15rem] md:rounded-t-[12rem] sm:rounded-t-[10rem] rounded-t-[7rem] flex bg-[#0d0d0d] min-h-screen "
+      className="relative justify-center xl:rounded-t-[20rem] lg:rounded-t-[15rem] md:rounded-t-[12rem] sm:rounded-t-[10rem] rounded-t-[7rem] flex bg-[#0d0d0d] min-h-[100dvh]"
       ref={ref}
       animate={isInView ? "show" : "hidden"}
       viewport={{ once: true }}
@@ -98,13 +98,7 @@ const Contact = () => {
               into your space!
             </motion.h1>
 
-            <motion.h1 variants={FADE_DOWN_ANIMATION_VARIANTS}>
-              Gift a touch of art! For personalized portraits or inquiries about
-              my work, reach out to me. Let&apos;s chat about bringing beauty
-              into your space!
-            </motion.h1>
-
-            <form onSubmit={handleSubmit} className="z-50">
+            <form onSubmit={handleSubmit} className="z-40 mt-2">
               <motion.h1
                 variants={FADE_UP_ANIMATION_VARIANTS}
                 className="flex pb-3 md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3"
