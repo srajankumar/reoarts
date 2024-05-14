@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <motion.div
       initial="hidden"
-      className="min-h-[100dvh] md:p-5 p-3 flex justify-center flex-col"
+      className="min-h-screen md:p-5 p-3 flex justify-center flex-col"
       ref={ref}
       animate={isInView ? "show" : "hidden"}
       viewport={{ once: true }}
@@ -28,12 +28,15 @@ const Hero = () => {
         },
       }}
     >
-      <motion.h1
-        className="text-secondary text-6xl md:text-8xl font-extrabold"
+      <motion.div
+        className="flex items-baseline gap-1"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        REO ARTS
-      </motion.h1>
+        <h1 className="text-secondary text-6xl md:text-8xl font-extrabold">
+          REO ARTS{" "}
+        </h1>{" "}
+        <p className="text-white font-semibold">by srajan</p>
+      </motion.div>
 
       <motion.h1
         className="pt-3 md:w-3/4 text-white"

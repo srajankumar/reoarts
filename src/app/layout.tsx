@@ -6,6 +6,7 @@ import Image from "next/image";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { Toaster } from "@/components/ui/sonner";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     "Sketch",
     "Drawing",
   ],
-  creator: "so-sc",
+  creator: "srajankumar",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -82,6 +83,7 @@ export default function RootLayout({
           <div className="absolute -z-10 top-0 left-0 w-[25%] h-[35%] bg-white rounded-tl-full" />
           <Footer />
         </div>
+        <Toaster />
       </body>
     </html>
   );

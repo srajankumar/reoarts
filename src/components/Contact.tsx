@@ -7,6 +7,7 @@ import { motion, useInView } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const emailServiceId = process.env.NEXT_PUBLIC_SERVICE_ID!;
 const emailTemplateId = process.env.NEXT_PUBLIC_TEMPLATE_ID!;
@@ -17,6 +18,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const ref = React.useRef(null);
   const isInView = useInView(ref) as boolean;
@@ -33,31 +35,35 @@ const Contact = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
-      const templateParams = {
-        from_name: name,
-        reply_to: email,
-        to_name: "kumarsrajan02@gmail.com",
-        subject: subject,
-        message: message,
-      };
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-      await emailjs.send(
-        emailServiceId,
-        emailTemplateId,
-        templateParams,
-        emailApiKey
-      );
+      const data = await response.json();
 
-      alert("Message sent!");
+      if (response.ok) {
+        toast("Email sent successfully!");
+      } else {
+        toast.error("Somethig went wrong! Please try again.");
+        console.log(data.error || "Something went wrong");
+      }
+
       setName("");
       setEmail("");
       setSubject("");
       setMessage("");
     } catch (error) {
-      alert("Error! Please try again.");
+      toast.error("Error! Please try again.");
       console.error("Error sending email:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -110,6 +116,7 @@ const Contact = () => {
                   onChange={(e) => setName(e.target.value)}
                   id="name"
                   placeholder="Full Name"
+                  disabled={isLoading}
                 />
                 <Input
                   required
@@ -118,6 +125,7 @@ const Contact = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   id="email"
                   placeholder="Email"
+                  disabled={isLoading}
                 />
               </motion.h1>
               <motion.h1 variants={FADE_UP_ANIMATION_VARIANTS}>
@@ -128,6 +136,7 @@ const Contact = () => {
                   id="message"
                   className="z-10"
                   placeholder="Type your message here"
+                  disabled={isLoading}
                 />
               </motion.h1>
               <motion.h1 variants={FADE_UP_ANIMATION_VARIANTS}>
@@ -135,7 +144,24 @@ const Contact = () => {
                   className="mt-3 px-10 rounded-full"
                   variant="secondary"
                   type="submit"
+                  disabled={isLoading}
                 >
+                  {isLoading && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mr-2 h-4 w-4 animate-spin"
+                    >
+                      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                    </svg>
+                  )}
                   Send
                 </Button>
               </motion.h1>
