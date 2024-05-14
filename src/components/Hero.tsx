@@ -29,7 +29,7 @@ const Hero = () => {
       }}
     >
       <motion.div
-        className="flex items-baseline gap-1"
+        className="flex flex-wrap-reverse items-baseline gap-1"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
         <h1 className="text-secondary text-6xl md:text-8xl font-extrabold">
